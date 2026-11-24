@@ -24,5 +24,5 @@ or modified elephant assets to restore.
 
 ## Project and performance links
 
-- Student Git remote pending. This project has a separate local Git repository.
-- Team Drive performance link pending. Add the share link after recording and verifying playback and access.
+- [Student project repository](https://github.com/ethanswhong/digiphant_test)
+- Drive performance video: https://drive.google.com/file/d/1okuIqFErf4iw3BogBS_06MYVXssV7z83/view?usp=sharing

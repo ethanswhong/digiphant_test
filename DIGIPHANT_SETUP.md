@@ -8,7 +8,7 @@
 | Unity | Installed editor 6000.6.10f1, URP 17.6.0, PC quality profile |
 | Python | 3.14.6, environment at `DigiPhantStarter/Tracking/.venv` |
 | Packages | MediaPipe 0.10.35, opencv-contrib-python 4.14.0.94 (cv2 reports 4.14.0), NumPy 2.5.5 |
-| Camera | Built-in MacBook Pro camera reported by macOS. Index 0 is the scene default and awaits an authorized capture. |
+| Camera | Built-in MacBook Pro camera, index 0. The bridge opened it successfully when launched from Terminal after the initial macOS authorization request. |
 | Starter | `https://github.com/kommanderpi/studentstarter.git` at `4e6dab5271c618d1c0bfb2022c41c0d37cd8d69f` |
 | Scene | `Assets/DigiPhant/Scenes/DigiPhant.unity`, default three performers, full body, Test sliders |
 
@@ -81,6 +81,13 @@ If index 0 opens the wrong device, try `--camera 1` during the standalone test.
 A manually launched bridge remains running until closed and can send preview to
 Unity while it runs. Use only one bridge for the default ports.
 
+If Unity's preview stays black at first launch on this Mac, stop Play and run
+the bridge from Terminal. The first launch can request camera access and then
+exit. After allowing access, rerun the same command with `--no-window` appended,
+leave Terminal running, and press Play in Unity. Stop the Terminal bridge with
+**Control+C** when you finish. If macOS denied access, enable **Terminal** under
+**System Settings → Privacy & Security → Camera** before retrying.
+
 ## Recording and Drive
 
 In Camera mode with a live preview and neutral pose, click **Record performance**.
@@ -115,6 +122,10 @@ DigiPhantStarter/Tracking/.venv/bin/python DigiPhantStarter/Tracking/encode_reco
   frames. Live preview, performer assignment, calibration, loss/recovery,
   visual material appearance and a real Game view recording still need the
   interactive checks above. The encoder test used generated frames.
+- On the webcam follow-up, the first Terminal launch requested permission and
+  exited. A second Terminal launch opened index 0 and processed live camera
+  frames in MediaPipe. This confirms camera capture through Terminal. The
+  interactive Unity preview and rig test is still pending.
 
 ## Repository reconstruction
 
