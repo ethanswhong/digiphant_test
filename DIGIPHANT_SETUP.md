@@ -115,3 +115,20 @@ DigiPhantStarter/Tracking/.venv/bin/python DigiPhantStarter/Tracking/encode_reco
   frames. Live preview, performer assignment, calibration, loss/recovery,
   visual material appearance and a real Game view recording still need the
   interactive checks above. The encoder test used generated frames.
+
+## Repository reconstruction
+
+Initialized the outer repository on `main`. It tracks the original scene and
+project configuration, the imported DigiPhant scene and scripts, and their
+metadata. The nested starter checkout, vendor assets, pose model, Python
+environment, Unity caches and recordings are ignored. The first commit contains
+98 tracked files and its largest file is the DigiPhant scene (about 80 KiB).
+
+Verified the README restore in a separate fresh checkout of `dc5e67f` with no
+Unity Library. Cloned the starter from GitHub at the pinned commit, restored the
+vendor folder with its metadata, created a new Python environment and passed
+`pip check`. Unity imported the project and passed both validation suites.
+All 15 non-builtin scene GUIDs resolved uniquely to restored assets or installed
+packages, including the URP materials and their shader references. The
+reconstructed worktree was clean. The working project's DigiPhant scene was
+also opened in the graphical editor for the live check.
